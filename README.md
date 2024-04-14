@@ -3,7 +3,7 @@
 
 #### You can use them, May be in some scenario you have to alter some changes in scripts . So I hardly suggest to understand scripts before runnning on target .
 
-##                     Happy Hacking       
+##                     Happy Hacking 💀
 
 
 
