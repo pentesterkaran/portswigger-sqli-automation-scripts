@@ -8,4 +8,4 @@
 
 
 
-###### " test.py is a script that i use to try some changes on scripts so this is not for your use it is completely for you 
+###### " test.py is a script that i use to try some changes on scripts so this is not for your use it is completely useless for you "
