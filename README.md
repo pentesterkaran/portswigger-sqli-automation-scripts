@@ -6,6 +6,7 @@
 ##                     Happy Hacking 💀
 
 
+##### Important : Always first start burp suite because requests have to go through burpsuite. 
 
 
 ###### " test.py is a script that i use to try some changes on scripts so this is not for your use it is completely useless for you "
