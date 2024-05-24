@@ -1,3 +1,6 @@
+#this is the first script 
+#problem statement is "SQL Injection vulnerability in parameter"
+
 import requests
 import sys
 import urllib3
