@@ -15,6 +15,14 @@
 import requests
 import sys
 import urllib3
+from colorama import Fore , Back , Style , init
+
+#Defining colors
+#init(autoreset=True)
+magenta = Fore.MAGENTA
+bright = Style.BRIGHT
+reset = Style.RESET_ALL
+print(bright,magenta)
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -46,3 +54,5 @@ if __name__=="__main__":
         print("Total number of Column is = ", total_clmn)
     else:
         print("Sql injection is unsuccessfull")    
+
+print(reset)

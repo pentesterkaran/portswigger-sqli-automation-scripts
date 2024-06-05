@@ -1,3 +1,5 @@
+#problem statement -> SQL injection attack, querying the database type and version on Oracle
+
 ''' On Oracle databases, every SELECT statement must specify a table to select FROM. If your UNION SELECT attack does not query from a table,
  you will still need to include the FROM keyword followed by a valid table name.
 There is a built-in table on Oracle called dual which you can use for this purpose. For example: UNION SELECT 'abc' FROM dual 
@@ -12,6 +14,15 @@ import sys
 import urllib3
 from bs4 import BeautifulSoup
 import re
+from colorama import Fore , Back , Style , init
+
+#Defining colors
+#init(autoreset=True)
+magenta = Fore.MAGENTA
+bright = Style.BRIGHT
+reset = Style.RESET_ALL
+print(bright,magenta)
+
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -74,3 +85,6 @@ if __name__ == "__main__":
     verssion = get_version(url,ncolumn,lcolumn)
     if verssion:
         print("**********  LAB SOLVED  ************")
+
+
+print(reset)

