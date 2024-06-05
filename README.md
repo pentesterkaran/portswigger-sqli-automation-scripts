@@ -21,7 +21,7 @@ pip3 install -r requirements.txt
 ```
 * Not forgot to open Burpsuite Bcz I redirect all request through burp proxy which make very easy for user to debug the script
 ```sh
-python3 script1.py <lab-url>
+python3 lab01.py <lab-url>
 ```
 
 # Tutorial
