@@ -25,4 +25,4 @@ python3 lab01.py <lab-url>
 ```
 
 # Tutorial
-[![portswigger-sqli-automation-scripts](https://img.youtube.com/vi/98nozY-LswQ/hqdefault.jpg)](https://www.youtube.com/embed/98nozY-LswQ)
+[![portswigger-sqli-automation-scripts](https://img.youtube.com/vi/b5b4RuoASms/hqdefault.jpg)](https://www.youtube.com/embed/b5b4RuoASms)
